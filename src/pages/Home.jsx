@@ -1,6 +1,10 @@
 // import { UserButton } from "@clerk/clerk-react";
 import { useEffect, useState, useRef } from "react";
 import Header from "../components/Header";
+import Reviews from "../components/homeHelper/Reviews";
+import Faqs from "../components/homeHelper/Faqs";
+import { Facebook, Github, Instagram, Linkedin, Twitter } from "lucide-react";
+import { useIsPageActive } from "../context/IsPageActiveContext";
 
 const imageUrls = [
   // {
@@ -66,9 +70,11 @@ const imageUrls = [
 
 const length = imageUrls.length;
 
-function Home({ isPageActive }) {
+function Home() {
   const [currSlide, setCurrSlide] = useState(0);
   const sliderRef = useRef(null);
+
+  const { isPageActive } = useIsPageActive();
 
   useEffect(() => {
     // if (currSlide >= length) return;
@@ -86,11 +92,24 @@ function Home({ isPageActive }) {
     //   });
     // }
 
+    const sliderElement = sliderRef.current;
+
+    if (sliderElement) {
+      console.log(sliderElement);
+      sliderElement.addEventListener("mousemove", (e) => {
+        console.log(e.pageX);
+      });
+    }
+
     const interval = setInterval(() => {
       if (currSlide >= length - 1) {
         setCurrSlide(0);
       } else {
         setCurrSlide((prev) => prev + 1);
+        // if (currSlide % 2 === 0) {
+        //   const slicedElement = imageUrls.shift();
+        //   imageUrls.push(slicedElement);
+        // }
       }
     }, 3000);
 
@@ -197,7 +216,7 @@ function Home({ isPageActive }) {
           </div>
         </section>
         <section className="free-templates-section">
-          <div>
+          <div className="slider-container">
             <h1>
               Explore our <b>Free Templates</b>
             </h1>
@@ -219,6 +238,34 @@ function Home({ isPageActive }) {
             ))}
           </div>
         </section>
+        <section>
+          <h1
+            style={{
+              fontSize: "30px",
+              textAlign: "center",
+              marginBottom: "5rem",
+            }}
+          >
+            Our top customers
+          </h1>
+          <Reviews />
+        </section>
+
+        <Faqs />
+        <footer>
+          <div className="footer-logo">
+            <img src="/logoipsum-247.svg" />
+            <h3>ResumeHuB</h3>
+          </div>
+          <div className="icons">
+            <Linkedin size={30} />
+            <Twitter size={30} />
+            <Github size={30} />
+            <Instagram size={30} />
+            <Facebook size={30} />
+          </div>
+          <p>&copy;2025 Innomatics final ReactJS project</p>
+        </footer>
       </main>
     </div>
   );

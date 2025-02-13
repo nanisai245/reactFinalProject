@@ -36,19 +36,27 @@ function FormSection() {
   }
   return (
     <div>
-      <button>
-        <LayoutGrid /> Theme
-      </button>
-      <div>
-        {currForm > 1 && (
-          <button onClick={() => handleClick("back")}>Back</button>
-        )}
-        <button
-          onClick={() => handleClick("next")}
-          disabled={currForm >= 5 || enableNext}
-        >
-          Next <ArrowRight />
+      <div className="middle-top">
+        <button className="theme-button">
+          <LayoutGrid /> Theme
         </button>
+        <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+          {currForm > 1 && (
+            <button
+              className="theme-button"
+              onClick={() => handleClick("back")}
+            >
+              Back
+            </button>
+          )}
+          <button
+            className="theme-button"
+            onClick={() => handleClick("next")}
+            disabled={currForm >= 5 || enableNext}
+          >
+            Next <ArrowRight />
+          </button>
+        </div>
       </div>
 
       {presentForm}

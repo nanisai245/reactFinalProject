@@ -19,8 +19,11 @@ function Dashboard() {
     <div className="dashboard">
       <Header text={"home"} />
       <div className="my-templates">
-        <h2>My Resume</h2>
-        <p>Start Creating AI resume for your next Job role</p>
+        <div style={{ textAlign: "center", marginTop: "80px" }}>
+          <h2>My Resume</h2>
+          <p>Start Creating AI resume for your next Job role</p>
+        </div>
+
         <div>
           <div className="template-container">
             <AddResume getUser={handleUserData} />

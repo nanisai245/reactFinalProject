@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useIsPageActive } from "../context/IsPageActiveContext";
 
 export default function LandingPage({ pageStatus }) {
   const imageUrls = [
@@ -24,6 +25,8 @@ export default function LandingPage({ pageStatus }) {
     "https://resumegenius.com/wp-content/uploads/clean-resume-builder-template-yellow.png?w=650",
     "https://marketplace.canva.com/EAFzfwx_Qik/4/0/1131w/canva-blue-simple-professional-cv-resume-T9RPR4DPdiw.jpg",
   ];
+
+  const { setIsPageActive } = useIsPageActive();
 
   const [visibleImages, setVisibleImages] = useState(
     Array(imageUrls.length).fill(false)
@@ -56,8 +59,8 @@ export default function LandingPage({ pageStatus }) {
 
   setTimeout(() => {
     setTimeout(() => {
-      pageStatus(true);
-    }, 2000);
+      setIsPageActive(true);
+    }, 800);
     setDecreaseOpacity(true);
   }, 4500);
 

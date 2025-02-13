@@ -44,28 +44,37 @@ function PersonalDetailsForm({ enableNext }) {
   }
 
   return (
-    <div>
+    <div className="middle-section">
       <h2>Personal Detail</h2>
       <p>Get started with basic information</p>
-      <form onSubmit={onSave}>
+      <form onSubmit={onSave} className="personal-form">
         <div>
-          <div>
-            <label>First Name</label>
-            <input
-              name="firstName"
-              value={resumeInfo.firstName}
-              onChange={handleInputChange}
-            />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              gap: "20px",
+            }}
+          >
+            <div className="name">
+              <label>First Name</label>
+              <input
+                name="firstName"
+                value={resumeInfo.firstName}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="name">
+              <label>Last Name</label>
+              <input
+                name="lastName"
+                value={resumeInfo.lastName}
+                onChange={handleInputChange}
+              />
+            </div>
           </div>
-          <div>
-            <label>Last Name</label>
-            <input
-              name="lastName"
-              value={resumeInfo.lastName}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
+
+          <div className="name">
             <label>Job Title</label>
             <input
               name="jobTitle"
@@ -73,7 +82,7 @@ function PersonalDetailsForm({ enableNext }) {
               onChange={handleInputChange}
             />
           </div>
-          <div>
+          <div className="name">
             <label>Address</label>
             <input
               name="address"
@@ -81,25 +90,35 @@ function PersonalDetailsForm({ enableNext }) {
               onChange={handleInputChange}
             />
           </div>
-          <div>
-            <label>Phone</label>
-            <input
-              name="phone"
-              value={resumeInfo.phone}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <label>Email</label>
-            <input
-              name="email"
-              value={resumeInfo.email}
-              onChange={handleInputChange}
-            />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              gap: "20px",
+            }}
+          >
+            <div className="name">
+              <label>Phone</label>
+              <input
+                name="phone"
+                value={resumeInfo.phone}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="name">
+              <label>Email</label>
+              <input
+                name="email"
+                value={resumeInfo.email}
+                onChange={handleInputChange}
+              />
+            </div>
           </div>
         </div>
-        <div>
-          <button type="submit">Save</button>
+        <div style={{ textAlign: "center" }}>
+          <button className="save-btn" type="submit">
+            Save
+          </button>
         </div>
       </form>
     </div>

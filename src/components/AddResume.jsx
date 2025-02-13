@@ -78,11 +78,30 @@ export default function AddResume({ getUser }) {
         >
           <CloseIcon />
         </IconButton>
-        <DialogContent dividers>
-          <Typography gutterBottom>Create New Resume</Typography>
-          <Typography gutterBottom>Add a title for your resume</Typography>
+        <DialogContent dividers style={{ width: "500px", height: "180px" }}>
+          <Typography
+            gutterBottom
+            style={{ fontWeight: "500", fontSize: "20px", textAlign: "center" }}
+          >
+            Create New Resume
+          </Typography>
+          <Typography
+            gutterBottom
+            style={{ fontSize: "16px", textAlign: "center" }}
+          >
+            Add a title for your resume
+          </Typography>
           <Typography gutterBottom>
             <input
+              style={{
+                width: "100%",
+                borderRadius: "10px",
+                padding: "5px 5px",
+                outline: "none",
+                border: "1px solid black",
+                marginTop: "30px",
+                fontSize: "15px",
+              }}
               type="text"
               placeholder="Ex.Full Stack resume"
               onChange={(e) => setUserTitle(e.target.value)}
